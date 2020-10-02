@@ -1,6 +1,5 @@
 package april.week2
 
-import ListNode
 
 
 fun middleNode(head: ListNode?): ListNode? {
@@ -26,4 +25,8 @@ fun middleNode(head: ListNode?): ListNode? {
     }
 
     return newCurrent
+}
+
+class ListNode(var data: Int) {
+    var next: ListNode? = null
 }
