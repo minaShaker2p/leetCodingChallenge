@@ -31,5 +31,22 @@ Output: 2
  */
 
 fun removeCoveredIntervals(intervals: Array<IntArray>): Int {
-    return 0
+
+    // find the most largest interval
+    var largestIntervalDiff = 0
+    var largestInterval: IntArray = intervals[0]
+    intervals.forEachIndexed { index, interval ->
+        val diff = interval[1] - interval[0]
+        if (diff >= largestIntervalDiff) {
+            largestIntervalDiff = diff
+            largestInterval = interval
+        }
+    }
+    var result = 1
+    intervals.forEach { interval ->
+        if (largestInterval[0] > interval[0] || largestInterval[1] > interval[1])
+            result += 1
+
+    }
+    return result
 }
