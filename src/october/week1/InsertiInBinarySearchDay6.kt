@@ -12,8 +12,30 @@ Notice that there may exist multiple valid ways for the insertion,
 as long as the tree remains a BST after insertion. You can return any of them.
  **/
 
-fun insertIntoBST(root: TreeNode?, `val`: Int): TreeNode? {
+fun insertIntoBST(root: TreeNode?, value: Int): TreeNode? {
+    if (root == null)
+    {
+        return root
+    }
+
+
+    if (root.data > value) {
+        insertIntoBST(root.left, value)
+    } else {
+        insertIntoBST(root.right, value)
+    }
+
+    if (root.left == null)
+    {
+        root.left=TreeNode(value)
+        return root
+    }
+
+    if (root.right == null)
+    {
+        root.right=TreeNode(value)
+        return root
+    }
+
     return root
-
-
 }

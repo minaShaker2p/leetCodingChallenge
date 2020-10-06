@@ -1,6 +1,6 @@
 
 // binary tree node
 class TreeNode(val data: Int) {
-    val left: TreeNode? = null
-    val right: TreeNode? = null
+    var left: TreeNode? = null
+    var right: TreeNode? = null
 }
