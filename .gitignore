@@ -40,6 +40,6 @@ out/production/leetCodeChallenge/week2/
 out/production/leetCodeChallenge/week3/
 out/production/leetCodeChallenge/week4/
 src/.DS_Store
-src/may/.DS_Store
+src/main/may/.DS_Store
 .idea/.gitignore
 .idea/workspace.xml
