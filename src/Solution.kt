@@ -1,4 +1,10 @@
+import october.week1.bitwiseComplement
+
 fun main(args: Array<String>) {
+
+
+    println(bitwiseComplement(1111))
+    println(bitwiseComplement(1255254))
 }
 
 fun deleteNth(elements: IntArray, maxOcurrences: Int): IntArray {
