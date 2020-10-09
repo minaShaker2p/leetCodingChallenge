@@ -18,5 +18,18 @@ Explanation: 2 does not exist in nums so return -1
  **/
 
 fun search(nums: IntArray, target: Int): Int {
+    var low = 0
+    var high = nums.size - 1
 
+    var middle = (low + high) / 2
+    while (low < high) {
+        if (target <= nums[middle])
+            high = middle
+        else
+            low = middle + 1
+
+        middle = (low + high) / 2
+    }
+
+    return if(target==nums[middle]) return middle else -1
 }
