@@ -30,5 +30,13 @@ Output: true
  **/
 
 fun buddyStrings(A: String, B: String): Boolean {
-    return false
+    if (A.length!=B.length)
+        return false
+
+        A.forEach {
+            if(!B.contains(it))
+                return false
+        }
+
+    return true
 }
