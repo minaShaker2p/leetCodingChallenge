@@ -30,13 +30,21 @@ Output: true
  **/
 
 fun buddyStrings(A: String, B: String): Boolean {
-    if (A.length!=B.length)
+    if (A.length != B.length)
         return false
 
+    val diff = mutableListOf<Int>()
+    if (A == B) {
+        val uniqueChar= HashSet<Char>()
         A.forEach {
-            if(!B.contains(it))
-                return false
+            uniqueChar.add(it)
         }
-
-    return true
+        return uniqueChar.size < A.length
+    } else {
+        A.forEachIndexed { index, _ ->
+            if (A[index] != B[index])
+                diff.add(index)
+        }
+        return diff.size == 2 && (A[diff[0]] == B[diff[1]] && A[diff[1]]== B[diff[0]] )
+    }
 }
