@@ -26,29 +26,29 @@ Output: 0
  */
 
 
-fun rob(nums: IntArray): Int {
+fun rob(numbers: IntArray): Int {
 
-    if (nums.isEmpty())
+    if (numbers.isEmpty())
         return 0
-    if (nums.size == 1)
-        return nums[0]
+    if (numbers.size == 1)
+        return numbers[0]
 
-    return max(robHouse1(nums.copyOfRange(0,nums.size-1)),robHouse1(nums.copyOfRange(1,nums.size)))
+    return max(robHouse1(numbers.copyOfRange(0,numbers.size-1)),robHouse1(numbers.copyOfRange(1,numbers.size)))
 }
 
-private fun robHouse1(nums: IntArray): Int {
-    if (nums.isEmpty())
+private fun robHouse1(numbers: IntArray): Int {
+    if (numbers.isEmpty())
         return 0
-    if (nums.size == 1)
-        return nums[0]
-    if (nums.size == 2)
-        return max(nums[0], nums[1])
+    if (numbers.size == 1)
+        return numbers[0]
+    if (numbers.size == 2)
+        return max(numbers[0], numbers[1])
 
-    var d = IntArray(nums.size)
-    d[0] = nums[0]
-    d[1] = max(nums[0], nums[1])
-    for (i in 2 until nums.size) {
-        d[i] = max(nums[i] + d[i - 2], d[i-1])
+    val d = IntArray(numbers.size)
+    d[0] = numbers[0]
+    d[1] = max(numbers[0], numbers[1])
+    for (i in 2 until numbers.size) {
+        d[i] = max(numbers[i] + d[i - 2], d[i-1])
     }
-    return d[nums.size - 1]
+    return d[numbers.size - 1]
 }
