@@ -1,12 +1,14 @@
 package main
 
 import main.october.week1.bitwiseComplement
+import kotlin.math.absoluteValue
+import kotlin.math.pow
 
 fun main(args: Array<String>) {
-
-
-    println(bitwiseComplement(1111))
-    println(bitwiseComplement(1255254))
+     println(solution(0))
+     println(solution(760))
+    println(solution(268))
+    println(solution(-999))
 }
 
 fun deleteNth(elements: IntArray, maxOcurrences: Int): IntArray {
@@ -54,4 +56,31 @@ fun longestConsec(strarr: Array<String>, k: Int): String {
 
 
     return max
+}
+
+fun solution(N: Int): Int {
+    val nums = mutableListOf<Int>()
+    var number = N
+
+        if (number == 0)
+            nums.add(0)
+         number= number.absoluteValue
+
+        while (number != 0) {
+            val temp = number % 10
+            nums.add(temp)
+            number /= 10
+            if (temp < 5)
+                break
+        }
+        nums.add(5)
+        if (number > 0)
+            nums.add(number)
+
+
+    var sum = 0
+    nums.forEachIndexed { index, i ->
+        sum += i * (10.0.pow(index * 1.0)).toInt()
+    }
+    return if(N >= 0) sum else sum*-1
 }
